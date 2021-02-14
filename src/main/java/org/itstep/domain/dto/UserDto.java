@@ -3,6 +3,7 @@ package org.itstep.domain.dto;
 import lombok.*;
 import org.hibernate.validator.constraints.Email;
 import org.itstep.controller.validator.Age;
+import org.itstep.controller.validator.Login;
 import org.itstep.controller.validator.Password;
 import org.itstep.domain.entity.User;
 
@@ -12,6 +13,7 @@ public class UserDto {
 
     private int id;
 
+    @Login(message = "{userDto.login}")
     @NonNull
     private String login;
 
