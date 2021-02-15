@@ -1,10 +1,8 @@
 package org.itstep.controller.validator;
 
 
-import org.itstep.domain.dao.impl.UserDaoImpl;
-import org.itstep.domain.entity.User;
+import org.itstep.domain.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.convert.ConversionService;
 
 
 import javax.validation.ConstraintValidator;
@@ -13,11 +11,9 @@ import javax.validation.ConstraintValidatorContext;
 public class LoginValidation implements ConstraintValidator<Login, String> {
 
     @Autowired
-    private ConversionService conversionService;
+    private final UserDao userDao;
 
-    private final UserDaoImpl userDao;
-
-    public LoginValidation(UserDaoImpl userDao) {
+    public LoginValidation(UserDao userDao) {
         this.userDao = userDao;
     }
 

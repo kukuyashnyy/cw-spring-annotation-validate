@@ -42,7 +42,13 @@ public class UserDaoImpl implements UserDao {
         entityManager.remove(user);
     }
 
+    @Override
     public Boolean isExist(String login) {
-        return entityManager.find(User.class, login) != null;
+        for (User user : findAll()) {
+            if (user.getLogin().equals(login)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -10,4 +10,5 @@ public interface UserDao {
     User findById(int id);
     List<User> findAll();
     void delete(User user);
+    Boolean isExist(String login);
 }
